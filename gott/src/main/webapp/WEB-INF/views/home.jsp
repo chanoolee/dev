@@ -41,7 +41,7 @@
 	<div id="list">
 		<c:forEach items="${netflexList}" var="list">
 			<ul>
-				<li><img src="${list.poster}" width="240" height="320" alt /></li>
+				<li><a target="_blank" href="${list.link}"><img src="${list.poster}" width="240" height="320" alt /></a></li>
 				<li>${list.title}</li>
 			</ul>
 		</c:forEach>
