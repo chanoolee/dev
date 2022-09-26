@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</select>
 	
-	<insert id="addComment">
+	<insert id="addComment" parameterType="Comment">
 		<![CDATA[
 			insert into comment(user_id, comm_content, comm_date, board_no)
 			values (

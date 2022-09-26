@@ -63,7 +63,8 @@
 			</tr>
 		</table>
 	
-	<button type="submit" id="addComment" onclick="addComment()">댓글쓰기</button>
+<%--	<button type="submit" id="addComment" onclick="addComment()">댓글쓰기</button> --%>
+	<input type="button" onClick="addComment()" value="댓글쓰기" />
 	
 	<input type="button" id="comment" onClick="comment()" value="댓글보기" />
 	
@@ -75,25 +76,34 @@
 <script>
 
 	function addComment() {
-		var userId = $("#userId");
-		var commContent = $("#commContent");
-		var comm = {"userId" : userId,<%-- "boardNo" : boardNo,--%> "commContent" : commContent};
+		var userId = "${userId}";
+		var commContent = $("#commContent").val();
+		var boardNo = $("#boardNo").val();
+		var comm = {"userId" : userId, "boardNo" : boardNo, "commContent" : commContent};
+		var xhr = new XMLHttpRequest();
 		
 		$.ajax({
 			url : "/comment/addComment",
 			type : "POST",
+			data : JSON.stringify(comm),
 			dataType : "text",
-			success : function(comm) { 
+			success : function(data) { 
 				alert("댓글 작성 완료");
-				console.log("userId = " +userId);
-				console.log("commContent = " +commContent);
+				console.log("userId = " + userId);
+				console.log("commContent = " + commContent);
+				console.log("boardNo = " + boardNo);
 				console.log(comm);
+				console.log(data);
+				console.log(xhr.status);
 			},
-			error : function(comm) {
+			error : function(data) {
 				alert("에러");
 				console.log("userId = " +userId);
 				console.log("commContent = " +commContent);
+				console.log("boardNo = " + boardNo);
 				console.log(comm);
+				console.log(data);
+				console.log(xhr.status);
 			}
 		});
 		
