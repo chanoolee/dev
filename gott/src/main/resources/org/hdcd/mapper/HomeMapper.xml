@@ -13,31 +13,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="coupangList" resultType="Platform">
 		<![CDATA[
-			select title, poster from playlist where plat_co = 200
+			select * from playlist where plat_co = 200
 		]]>
 	</select>
 	
 	<select id="waveList" resultType="Platform">
 		<![CDATA[
-			select title, poster from playlist where plat_co = 300
+			select * from playlist where plat_co = 300
 		]]>
 	</select>
 	
 	<select id="watchaList" resultType="Platform">
 		<![CDATA[
-			select title, poster from playlist where plat_co = 400
+			select * from playlist where plat_co = 400
 		]]>
 	</select>
 	
 	<select id="disneyList" resultType="Platform">
 		<![CDATA[
-			select title, poster from playlist where plat_co = 500
+			select * from playlist where plat_co = 500
 		]]>
 	</select>
 	
 	<select id="tivingList" resultType="Platform">
 		<![CDATA[
-			select title, poster from playlist where plat_co = 600
+			select * from playlist where plat_co = 600
 		]]>
 	</select>
 </mapper>

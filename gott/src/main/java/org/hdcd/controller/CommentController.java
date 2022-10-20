@@ -6,8 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.hdcd.domain.Comment;
 import org.hdcd.service.CommentService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,7 +31,6 @@ public class CommentController {
 	
 	@ResponseBody
 	@GetMapping("/list")
-	@PreAuthorize("hasRole('MEMBER')")
 	public List<Comment> list(Long boardNo) throws Exception {
 		
 		List<Comment> commentList = service.list(boardNo);
@@ -38,12 +41,19 @@ public class CommentController {
 	
 	@PostMapping("/addComment")
 	@PreAuthorize("hasRole('MEMBER')")
-	public void addComment(@RequestBody Comment comment) throws Exception {
+	public ResponseEntity<Comment> addComment(@RequestBody Comment comment, BindingResult result, HttpServletRequest request, Model model) throws Exception {
+		
+		String ajaxHeader = request.getHeader("X-Ajax-call");
+		model.addAttribute("ajaxHeader", ajaxHeader);
 		
 		service.addComment(comment);
 		
 		System.out.println("commentId = " + comment.getUserId());
 		System.out.println("commentContent = " + comment.getCommContent());
+		
+		ResponseEntity<Comment> entity = new ResponseEntity<Comment>(HttpStatus.OK);
+		
+		return entity;
 		
 	}
 	

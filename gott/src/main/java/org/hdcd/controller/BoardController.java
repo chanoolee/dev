@@ -82,6 +82,7 @@ public class BoardController {
 	}
 
 	@GetMapping("/read")
+	@PreAuthorize("hasRole('MEMBER')")
 	public void read(Long boardNo, @ModelAttribute("pgrq") PageRequest pageRequest, Model model) throws Exception {
 		Board board = service.read(boardNo);
 		model.addAttribute(board);

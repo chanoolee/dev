@@ -56,7 +56,7 @@
 	<div id="list">
 		<c:forEach items="${coupangList}" var="list">
 			<ul>
-				<li><img src="${list.poster}" width="240" height="320" alt /></li>
+				<li><a target="_blank" href="${list.link}"><img src="${list.poster}" width="240" height="320" alt /></a></li>
 				<li>${list.title}</li>
 			</ul>
 		</c:forEach>
@@ -71,7 +71,7 @@
 	<div id="list">
 		<c:forEach items="${waveList}" var="list">
 			<ul>
-				<li><img src="${list.poster}" width="240" height="320" alt /></li>
+				<li><a target="_blank" href="${list.link}"><img src="${list.poster}" width="240" height="320" alt /></a></li>
 				<li>${list.title}</li>
 			</ul>
 		</c:forEach>
@@ -86,7 +86,7 @@
 	<div id="list">
 		<c:forEach items="${watchaList}" var="list">
 			<ul>
-				<li><img src="${list.poster}" width="240" height="320" alt /></li>
+				<li><a target="_blank" href="${list.link}"><img src="${list.poster}" width="240" height="320" alt /></a></li>
 				<li>${list.title}</li>
 			</ul>
 		</c:forEach>
@@ -101,7 +101,7 @@
 	<div id="list">
 		<c:forEach items="${disneyList}" var="list">
 			<ul>
-				<li><img src="${list.poster}" width="240" height="320" alt /></li>
+				<li><a target="_blank" href="${list.link}"><img src="${list.poster}" width="240" height="320" alt /></a></li>
 				<li>${list.title}</li>
 			</ul>
 		</c:forEach>
@@ -116,7 +116,7 @@
 	<div id="list">
 		<c:forEach items="${tivingList}" var="list">
 			<ul>
-				<li><img src="${list.poster}" width="240" height="320" alt /></li>
+				<li><a target="_blank" href="${list.link}"><img src="${list.poster}" width="240" height="320" alt /></a></li>
 				<li>${list.title}</li>
 			</ul>
 		</c:forEach>
